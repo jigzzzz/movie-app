@@ -1,0 +1,43 @@
+package com.exercise.movie_app.ui.detailmovie
+
+import android.os.Bundle
+import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.exercise.movie_app.databinding.FragmentMovieDetailBinding
+import com.exercise.movie_app.ui.main.TabAdapter
+
+class MovieDetailFragment : Fragment() {
+
+    lateinit var binding: FragmentMovieDetailBinding
+    lateinit var sectionPagerAdapter: TabAdapter
+    private var movieId : Int = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentMovieDetailBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        movieId = arguments?.getInt("id")!!
+
+        sectionPagerAdapter = TabAdapter(requireContext(), parentFragmentManager)
+        sectionPagerAdapter.setMovieId(movieId)
+
+        binding.apply {
+            vpDetail.adapter = sectionPagerAdapter
+            tabLayout.setupWithViewPager(vpDetail)
+        }
+    }
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tosca">#DCF3E6</color>
+    <color name="tosca_dark">#C1D5CA</color>
+    <color name="tosca_darkest">#47525E</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="navy">#004071</color>
+    <color name="purple">#4B65FF</color>
+</resources>
